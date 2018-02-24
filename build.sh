@@ -1,3 +1,7 @@
-for i in *; do inkscape Veve.svg --export-png=Veve.png; done;
-mkdir -p Built;
-mv *.png Built/
+mkdir -p Built
+mkdir -p Built/Legba
+mkdir -p Built/Notes
+
+for file in Legba/*.svg; do inkscape $file -e Built/${file%svg}png; done;
+for file in Notes/*.svg; do inkscape $file -e Built/${file%svg}png; done;
+
